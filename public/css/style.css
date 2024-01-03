@@ -27,7 +27,6 @@
 
 .unselectable {
   -moz-user-select: -moz-none;
-  -khtml-user-select: none;
   -webkit-user-select: none;
   -o-user-select: none;
   user-select: none;
@@ -41,23 +40,52 @@ body {
   background-color: #ffffff;
 }
 
-navbar .logo {
+.container {
+  max-width: 1352px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+nav {
+  padding: 20px 0;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+}
+nav .logo {
   font-size: 28px;
   color: #393e46;
   font-weight: bold;
-  padding: 0 12%;
-  margin-top: 32px;
+}
+@media (min-width: 1025px) {
+  nav {
+    padding: 30px 0;
+    min-height: 100px;
+  }
+}
+
+.main-section {
+  padding: 60px 0;
+}
+@media (min-width: 1025px) {
+  .main-section {
+    padding: 100px 0;
+  }
 }
 
 .main {
-  display: flex;
-  padding: 0 12%;
-  margin-top: 20vh;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 40px;
 }
-.main .create-join {
-  width: 85%;
-  margin-right: 50px;
+@media (min-width: 1025px) {
+  .main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+  }
 }
 .main .create-join .text .head {
   font-size: 36px;
@@ -129,7 +157,7 @@ navbar .logo {
   border-radius: 0;
 }
 .main .create-join .roomcode-error {
-  border-bottom: 3px solid #d31c1c;
+  border-bottom: 3px solid rgb(211, 28, 28);
 }
 .main .create-join .joinroom {
   margin-top: 20px;
@@ -144,15 +172,14 @@ navbar .logo {
   text-decoration: underline;
 }
 .main .video-cont {
-  width: 100%;
   text-align: center;
+  padding-bottom: 56.25%;
 }
 .main .video-cont .video-self {
-  height: 400px;
-  width: 100%;
   background-color: #393e46;
   border-radius: 10px;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .main .video-cont .settings {
   margin: 0 auto;
@@ -187,19 +214,6 @@ navbar .logo {
   cursor: pointer;
 }
 
-@media (max-width: 1200px) {
-  .main {
-    flex-direction: column;
-  }
-  .main .create-join {
-    width: 100%;
-    margin-right: 0;
-  }
-  .main .video-cont {
-    margin-top: 100px;
-    margin-bottom: 100px;
-  }
-}
 .overlay {
   position: fixed;
   z-index: 100;
@@ -276,7 +290,7 @@ navbar .logo {
   background: #f1f1f1;
 }
 .container-room ::-webkit-scrollbar-thumb {
-  background: #c5c5c5;
+  background: rgb(197, 197, 197);
 }
 .container-room ::-webkit-scrollbar-thumb:hover {
   background: #555;
@@ -300,7 +314,7 @@ navbar .logo {
   min-height: 600px;
 }
 .container-room .left-cont .whiteboard-cont #whiteboard {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border-radius: 10px;
 }
 .container-room .left-cont .whiteboard-cont .colors-cont {
@@ -415,7 +429,7 @@ navbar .logo {
   width: 30px;
   font-size: 26px;
   margin-top: 10px;
-  color: #2b2b2b;
+  color: rgb(43, 43, 43);
 }
 .container-room .left-cont .whiteboard-cont .colors-cont .eraser:hover {
   cursor: pointer;
@@ -425,7 +439,7 @@ navbar .logo {
   width: 30px;
   font-size: 26px;
   margin-top: 10px;
-  color: #2b2b2b;
+  color: rgb(43, 43, 43);
 }
 .container-room .left-cont .whiteboard-cont .colors-cont .clearboard:hover {
   cursor: pointer;
@@ -449,7 +463,8 @@ navbar .logo {
   height: 100%;
   min-height: 200px;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 5px;
 }
 .container-room .left-cont .video-cont .video-box .nametag {
@@ -471,7 +486,7 @@ navbar .logo {
   margin-right: auto;
 }
 .container-room .left-cont .video-cont .video-box .mute-icon {
-  color: #d63434;
+  color: rgb(214, 52, 52);
   bottom: 10px;
   position: absolute;
   right: 10px;
@@ -494,7 +509,8 @@ navbar .logo {
   height: 100%;
   min-height: 200px;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 5px;
 }
 .container-room .left-cont .video-cont-single .video-box .nametag {
@@ -516,7 +532,7 @@ navbar .logo {
   margin-right: auto;
 }
 .container-room .left-cont .video-cont-single .video-box .mute-icon {
-  color: #d63434;
+  color: rgb(214, 52, 52);
   bottom: 10px;
   position: absolute;
   right: 10px;
@@ -663,7 +679,7 @@ navbar .logo {
   background: #f1f1f1;
 }
 .container-room .right-cont ::-webkit-scrollbar-thumb {
-  background: #c5c5c5;
+  background: rgb(197, 197, 197);
 }
 .container-room .right-cont ::-webkit-scrollbar-thumb:hover {
   background: #555;
@@ -759,7 +775,7 @@ navbar .logo {
 .container-room .right-cont .chat-input-cont .chat-send:hover {
   color: #2980b9;
   cursor: pointer;
-  background-color: #f3f3f3;
+  background-color: rgb(243, 243, 243);
 }
 .container-room .right-cont .chat-input-cont .chat-send:focus {
   outline: none;
@@ -773,7 +789,7 @@ navbar .logo {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
-  background-color: #0f0f0f;
+  background-color: rgb(15, 15, 15);
   color: #fff;
   text-align: center;
   border-radius: 6px;
@@ -796,12 +812,10 @@ navbar .logo {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #0f0f0f transparent transparent transparent;
+  border-color: rgb(15, 15, 15) transparent transparent transparent;
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 0.8;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
